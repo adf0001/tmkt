@@ -1,0 +1,25 @@
+{
+  "name": "tmkt",
+  "description": "Time kit",
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "tmkt.js",
+  "keywords": [
+    "time",
+    "kit"
+  ],
+  "author": {
+    "name": "fwg",
+    "email": "adf0001@163.com"
+  },
+  "homepage": "https://github.com/adf0001/tmkt#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adf0001/tmkt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adf0001/tmkt/issues",
+    "email": "adf0001@163.com"
+  },
+  "licenses": "MIT"
+}
