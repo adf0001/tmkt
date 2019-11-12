@@ -4,6 +4,8 @@
 /**
  * @module tmkt
  * 
+ * @module-type object-kit
+ * 
  * @description
  * 
  * Time kit
@@ -12,40 +14,40 @@
  * 
  * 0. const
  *
- *  * [.constDayMilliseconds		]{@link module:tmkt~constDayMilliseconds}: 86400000,		// 24\*60\*60\*1000
+ *      * [.DAY_MILLISECONDS		]{@link module:tmkt~DAY_MILLISECONDS}: 86400000,		// 24\*60\*60\*1000
  *
  * 1. to string
  *
- *  * [.toString14( dt )		]{@link module:tmkt~toString14}	//Date to "yyyymmddHHMMSS"
- *  * [.toString19( dt )		]{@link module:tmkt~toString19}	//Date to "YYYY-MM-DD hh:mm:ss"
- *  * [.toMdhms14( dt )			]{@link module:tmkt~toMdhms14}	//Date to "MM-DD hh:mm:ss"
- *  * [.toHms8( dt )			]{@link module:tmkt~toHms8}		//Date to "hh:mm:ss"
- *  * [.toHm5( dt )				]{@link module:tmkt~toHm5}		//Date to "hh:mm"
- *  * [.toYmd10( dt )			]{@link module:tmkt~toYmd10}		//Date to "YYYY-MM-DD"
- *  * [.toYmd6( dt )			]{@link module:tmkt~toYmd6}		//Date to "YYMMDD"
+ *      * [.toString14( dt )		]{@link module:tmkt~toString14}	//Date to "yyyymmddHHMMSS"
+ *      * [.toString19( dt )		]{@link module:tmkt~toString19}	//Date to "YYYY-MM-DD hh:mm:ss"
+ *      * [.toMdhms14( dt )			]{@link module:tmkt~toMdhms14}	//Date to "MM-DD hh:mm:ss"
+ *      * [.toHms8( dt )			]{@link module:tmkt~toHms8}		//Date to "hh:mm:ss"
+ *      * [.toHm5( dt )				]{@link module:tmkt~toHm5}		//Date to "hh:mm"
+ *      * [.toYmd10( dt )			]{@link module:tmkt~toYmd10}		//Date to "YYYY-MM-DD"
+ *      * [.toYmd6( dt )			]{@link module:tmkt~toYmd6}		//Date to "YYMMDD"
  *	  
  * 2. from string
  *
- *  * [.fromString19( s )		]{@link module:tmkt~fromString19}		//"YYYY-MM-DD hh:mm:ss" to Date
- *  * [.fromString14( s )		]{@link module:tmkt~fromString14}		//"yyyymmddHHMMSS" to Date
- *  * [.fromYmd10( s )			]{@link module:tmkt~fromYmd10}		//"YYYY-MM-DD" to Date
- *  * [.fromYmd8( s )			]{@link module:tmkt~fromYmd8}		//"YYYYMMDD" to Date
- *  * [.fromUtcString19( s )	]{@link module:tmkt~fromUtcString19}	//utc "YYYY-MM-DD hh:mm:ss" to Date
+ *      * [.fromString19( s )		]{@link module:tmkt~fromString19}		//"YYYY-MM-DD hh:mm:ss" to Date
+ *      * [.fromString14( s )		]{@link module:tmkt~fromString14}		//"yyyymmddHHMMSS" to Date
+ *      * [.fromYmd10( s )			]{@link module:tmkt~fromYmd10}		//"YYYY-MM-DD" to Date
+ *      * [.fromYmd8( s )			]{@link module:tmkt~fromYmd8}		//"YYYYMMDD" to Date
+ *      * [.fromUtcString19( s )	]{@link module:tmkt~fromUtcString19}	//utc "YYYY-MM-DD hh:mm:ss" to Date
  *
  * 3. utc & local
- *  * [.utcToLocal( dt )		]{@link module:tmkt~utcToLocal}		//utc to local
- *  * [.localToUtc( dt )		]{@link module:tmkt~localToUtc}		//local to utc
- *  * [.utcNow()				]{@link module:tmkt~utcNow}			//utc now
+ *      * [.utcToLocal( dt )		]{@link module:tmkt~utcToLocal}		//utc to local
+ *      * [.localToUtc( dt )		]{@link module:tmkt~localToUtc}		//local to utc
+ *      * [.utcNow()				]{@link module:tmkt~utcNow}			//utc now
  *
  * 4. month tool
  *
- *  * [.monthStart( dt )		]{@link module:tmkt~monthStart}		//month start: YYYY-MM-01 00:00:00
- *  * [.monthEnd( dt )			]{@link module:tmkt~monthEnd}			//month end: YYYY-MM-31/30/28/29 23:59:59.999
- *  * [.previousMonthStart( dt )	]{@link module:tmkt~previousMonthStart}	//previous month start: YYYY-MM-01 00:00:00
- *  * [.previousMonthEnd( dt )		]{@link module:tmkt~previousMonthEnd}		//previous month end: YYYY-MM-31/30/28/29 23:59:59.999
- *  * [.nextMonthStart( dt )	]{@link module:tmkt~nextMonthStart}	//next month start: YYYY-MM-01 00:00:00
- *  * [.nextMonthEnd( dt )		]{@link module:tmkt~nextMonthEnd}		//next month end: YYYY-MM-31/30/28/29 23:59:59.999
- *  * [.getMonthDayNumber( dt )]{@link module:tmkt~getMonthDayNumber}	//get month day number
+ *      * [.monthStart( dt )		]{@link module:tmkt~monthStart}		//month start: YYYY-MM-01 00:00:00
+ *      * [.monthEnd( dt )			]{@link module:tmkt~monthEnd}			//month end: YYYY-MM-31/30/28/29 23:59:59.999
+ *      * [.previousMonthStart( dt )	]{@link module:tmkt~previousMonthStart}	//previous month start: YYYY-MM-01 00:00:00
+ *      * [.previousMonthEnd( dt )		]{@link module:tmkt~previousMonthEnd}		//previous month end: YYYY-MM-31/30/28/29 23:59:59.999
+ *      * [.nextMonthStart( dt )	]{@link module:tmkt~nextMonthStart}	//next month start: YYYY-MM-01 00:00:00
+ *      * [.nextMonthEnd( dt )		]{@link module:tmkt~nextMonthEnd}		//next month end: YYYY-MM-31/30/28/29 23:59:59.999
+ *      * [.getMonthDayNumber( dt )]{@link module:tmkt~getMonthDayNumber}	//get month day number
  *
  * @example
 var tmkt= require("tmkt");
@@ -55,15 +57,15 @@ tmkt.toString19(dt);
  */
 
 var tmkt = {
-	
+
 	//const
 
 	/**
 	 * Milliseconds of one day, 24\*60\*60\*1000= 86400000
-	 * @member constDayMilliseconds
+	 * @member DAY_MILLISECONDS
 	 * 
 	 */
-	constDayMilliseconds: 86400000,		// 24*60*60*1000
+	DAY_MILLISECONDS: 86400000,		// 24*60*60*1000
 
 
 	/**
@@ -116,7 +118,7 @@ var tmkt = {
 			parseInt(s.substring(0, 4), 10),
 			parseInt(s.substring(4, 6), 10) - 1,
 			parseInt(s.substring(6, 8), 10),
-			0,0,0
+			0, 0, 0
 		);
 	},
 
@@ -156,7 +158,7 @@ var tmkt = {
 			sa[5]
 		);
 	},
-	
+
 
 	/**
 	 * "YYYY-MM-DD" to Date
@@ -173,7 +175,7 @@ var tmkt = {
 			sa[0],
 			sa[1] - 1,
 			sa[2],
-			0,0,0
+			0, 0, 0
 		);
 	},
 
@@ -321,9 +323,9 @@ var tmkt = {
 	 * @returns A new Date object, YYYY-MM-31/30/28/29 23:59:59.999
 	 */
 	monthEnd: function (dt) {
-		dt= new Date( dt.getTime() + (35-dt.getDate())*this.constDayMilliseconds );		//next month
-		dt= new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0);
-		return new Date( dt.getTime()-1);
+		dt = new Date(dt.getTime() + (35 - dt.getDate()) * this.DAY_MILLISECONDS);		//next month
+		dt = new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0);
+		return new Date(dt.getTime() - 1);
 	},
 
 
@@ -336,8 +338,8 @@ var tmkt = {
 	 * @returns A new Date object, YYYY-MM-01 00:00:00
 	 */
 	previousMonthStart: function (dt) {
-		dt= new Date( dt.getTime()- (dt.getDate()+5)*this.constDayMilliseconds );
-		return new Date(dt.getFullYear(),dt.getMonth(),1,0,0,0);
+		dt = new Date(dt.getTime() - (dt.getDate() + 5) * this.DAY_MILLISECONDS);
+		return new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0);
 	},
 
 
@@ -350,8 +352,8 @@ var tmkt = {
 	 * @returns A new Date object, YYYY-MM-31/30/28/29 23:59:59.999
 	 */
 	previousMonthEnd: function (dt) {
-		dt= new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0);
-		return new Date( dt.getTime()-1);
+		dt = new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0);
+		return new Date(dt.getTime() - 1);
 	},
 
 
@@ -364,7 +366,7 @@ var tmkt = {
 	 * @returns A new Date object, YYYY-MM-01 00:00:00
 	 */
 	nextMonthStart: function (dt) {
-		dt= new Date( dt.getTime() + (35-dt.getDate())*this.constDayMilliseconds );		//next month
+		dt = new Date(dt.getTime() + (35 - dt.getDate()) * this.DAY_MILLISECONDS);		//next month
 		return new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0);
 	},
 
@@ -378,9 +380,9 @@ var tmkt = {
 	 * @returns A new Date object, YYYY-MM-31/30/28/29 23:59:59.999
 	 */
 	nextMonthEnd: function (dt) {
-		dt= new Date( dt.getTime() + (70-dt.getDate())*this.constDayMilliseconds );		//next 2 month
-		dt= new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0);
-		return new Date( dt.getTime()-1);
+		dt = new Date(dt.getTime() + (70 - dt.getDate()) * this.DAY_MILLISECONDS);		//next 2 month
+		dt = new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0);
+		return new Date(dt.getTime() - 1);
 	},
 
 	/**
@@ -392,7 +394,7 @@ var tmkt = {
 	 * @returns month day number of `dt`
 	 */
 	getMonthDayNumber: function (dt) {
-		return (this.nextMonthStart(dt)-this.monthStart(dt))/this.constDayMilliseconds;
+		return (this.nextMonthStart(dt) - this.monthStart(dt)) / this.DAY_MILLISECONDS;
 	},
 
 };

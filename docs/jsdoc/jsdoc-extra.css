@@ -1,6 +1,10 @@
 
 /**************************************************/
 
+article h1, header .class-description h1 {
+	margin-left: 0px;
+}
+
 article h3.subsection-title {
 	border-top: 5px solid gray;
 	padding-top: 0.5em;
@@ -20,4 +24,17 @@ article h4.name span.type-signature {
 
 code{
 	color: #f5871f;
+}
+
+.prettyprint
+{
+    border: 1px solid #ddd;
+}
+
+.props thead tr,.params thead tr{
+	background: none;
+}
+
+.props thead tr th,.props tbody tr td,.params thead tr th,.params tbody tr td{
+	border-color:#ddd;
 }

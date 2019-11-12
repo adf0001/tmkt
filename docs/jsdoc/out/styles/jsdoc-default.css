@@ -273,7 +273,7 @@ tr > th:last-child { border-right: 1px solid #ddd; }
     margin: 0;
 }
 
-.prettyprint
+.source
 {
     border: 1px solid #ddd;
     width: 80%;
@@ -284,7 +284,7 @@ tr > th:last-child { border-right: 1px solid #ddd; }
     width: inherit;
 }
 
-.prettyprint code
+.source code
 {
     font-size: 100%;
     line-height: 18px;
@@ -359,6 +359,10 @@ tr > th:last-child { border-right: 1px solid #ddd; }
 
 /**************************************************/
 
+article h1, header .class-description h1 {
+	margin-left: 0px;
+}
+
 article h3.subsection-title {
 	border-top: 5px solid gray;
 	padding-top: 0.5em;
@@ -379,4 +383,16 @@ article h4.name span.type-signature {
 code{
 	color: #f5871f;
 }
-
+
+.prettyprint
+{
+    border: 1px solid #ddd;
+}
+
+.props thead tr,.params thead tr{
+	background: none;
+}
+
+.props thead tr th,.props tbody tr td,.params thead tr th,.params tbody tr td{
+	border-color:#ddd;
+}

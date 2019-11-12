@@ -38,49 +38,55 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Time kit</p>
-<h1>Contents</h1><ol start="0">
-<li><p>const</p>
+            <div class="description"><h5>module-type: object-kit</h5><p>Time kit</p>
+<h1>Contents</h1>
+<ol start="0">
+<li>
+<p>const</p>
 <ul>
-<li><a href="module-tmkt.html#~constDayMilliseconds">.constDayMilliseconds        </a>: 86400000,        // 24*60*60*1000</li>
+<li><a href="module-tmkt.html#~DAY_MILLISECONDS">.DAY_MILLISECONDS		</a>: 86400000,		// 24*60*60*1000</li>
 </ul>
 </li>
-<li><p>to string</p>
+<li>
+<p>to string</p>
 <ul>
-<li>.toString14( dt )            //Date to &quot;yyyymmddHHMMSS&quot;</li>
-<li><a href="module-tmkt.html#~toString19">.toString19( dt )        </a>    //Date to &quot;YYYY-MM-DD hh:mm:ss&quot;</li>
-<li><a href="module-tmkt.html#~toMdhms14">.toMdhms14( dt )            </a>    //Date to &quot;MM-DD hh:mm:ss&quot;</li>
-<li><a href="module-tmkt.html#~toHms8">.toHms8( dt )            </a>        //Date to &quot;hh:mm:ss&quot;</li>
-<li><a href="module-tmkt.html#~toHm5">.toHm5( dt )                </a>        //Date to &quot;hh:mm&quot;</li>
-<li><a href="module-tmkt.html#~toYmd10">.toYmd10( dt )            </a>        //Date to &quot;YYYY-MM-DD&quot;</li>
-<li><a href="module-tmkt.html#~toYmd6">.toYmd6( dt )            </a>        //Date to &quot;YYMMDD&quot;</li>
+<li><a href="module-tmkt.html#~toString14">.toString14( dt )		</a>	//Date to &quot;yyyymmddHHMMSS&quot;</li>
+<li><a href="module-tmkt.html#~toString19">.toString19( dt )		</a>	//Date to &quot;YYYY-MM-DD hh:mm:ss&quot;</li>
+<li><a href="module-tmkt.html#~toMdhms14">.toMdhms14( dt )			</a>	//Date to &quot;MM-DD hh:mm:ss&quot;</li>
+<li><a href="module-tmkt.html#~toHms8">.toHms8( dt )			</a>		//Date to &quot;hh:mm:ss&quot;</li>
+<li><a href="module-tmkt.html#~toHm5">.toHm5( dt )				</a>		//Date to &quot;hh:mm&quot;</li>
+<li><a href="module-tmkt.html#~toYmd10">.toYmd10( dt )			</a>		//Date to &quot;YYYY-MM-DD&quot;</li>
+<li><a href="module-tmkt.html#~toYmd6">.toYmd6( dt )			</a>		//Date to &quot;YYMMDD&quot;</li>
 </ul>
 </li>
-<li><p>from string</p>
+<li>
+<p>from string</p>
 <ul>
-<li><a href="module-tmkt.html#~fromString19">.fromString19( s )        </a>        //&quot;YYYY-MM-DD hh:mm:ss&quot; to Date</li>
-<li><a href="module-tmkt.html#~fromString14">.fromString14( s )        </a>        //&quot;yyyymmddHHMMSS&quot; to Date</li>
-<li><a href="module-tmkt.html#~fromYmd10">.fromYmd10( s )            </a>        //&quot;YYYY-MM-DD&quot; to Date</li>
-<li><a href="module-tmkt.html#~fromYmd8">.fromYmd8( s )            </a>        //&quot;YYYYMMDD&quot; to Date</li>
-<li><a href="module-tmkt.html#~fromUtcString19">.fromUtcString19( s )    </a>    //utc &quot;YYYY-MM-DD hh:mm:ss&quot; to Date</li>
+<li><a href="module-tmkt.html#~fromString19">.fromString19( s )		</a>		//&quot;YYYY-MM-DD hh:mm:ss&quot; to Date</li>
+<li><a href="module-tmkt.html#~fromString14">.fromString14( s )		</a>		//&quot;yyyymmddHHMMSS&quot; to Date</li>
+<li><a href="module-tmkt.html#~fromYmd10">.fromYmd10( s )			</a>		//&quot;YYYY-MM-DD&quot; to Date</li>
+<li><a href="module-tmkt.html#~fromYmd8">.fromYmd8( s )			</a>		//&quot;YYYYMMDD&quot; to Date</li>
+<li><a href="module-tmkt.html#~fromUtcString19">.fromUtcString19( s )	</a>	//utc &quot;YYYY-MM-DD hh:mm:ss&quot; to Date</li>
 </ul>
 </li>
-<li><p>utc &amp; local</p>
+<li>
+<p>utc &amp; local</p>
 <ul>
-<li><a href="module-tmkt.html#~utcToLocal">.utcToLocal( dt )        </a>        //utc to local</li>
-<li><a href="module-tmkt.html#~localToUtc">.localToUtc( dt )        </a>        //local to utc</li>
-<li><a href="module-tmkt.html#~utcNow">.utcNow()                </a>            //utc now</li>
+<li><a href="module-tmkt.html#~utcToLocal">.utcToLocal( dt )		</a>		//utc to local</li>
+<li><a href="module-tmkt.html#~localToUtc">.localToUtc( dt )		</a>		//local to utc</li>
+<li><a href="module-tmkt.html#~utcNow">.utcNow()				</a>			//utc now</li>
 </ul>
 </li>
-<li><p>month tool</p>
+<li>
+<p>month tool</p>
 <ul>
-<li><a href="module-tmkt.html#~monthStart">.monthStart( dt )        </a>        //month start: YYYY-MM-01 00:00:00</li>
-<li><a href="module-tmkt.html#~monthEnd">.monthEnd( dt )            </a>            //month end: YYYY-MM-31/30/28/29 23:59:59.999</li>
-<li><a href="module-tmkt.html#~previousMonthStart">.previousMonthStart( dt )    </a>    //previous month start: YYYY-MM-01 00:00:00</li>
-<li><a href="module-tmkt.html#~previousMonthEnd">.previousMonthEnd( dt )        </a>        //previous month end: YYYY-MM-31/30/28/29 23:59:59.999</li>
-<li><a href="module-tmkt.html#~nextMonthStart">.nextMonthStart( dt )    </a>    //next month start: YYYY-MM-01 00:00:00</li>
-<li><a href="module-tmkt.html#~nextMonthEnd">.nextMonthEnd( dt )        </a>        //next month end: YYYY-MM-31/30/28/29 23:59:59.999</li>
-<li><a href="module-tmkt.html#~getMonthDayNumber">.getMonthDayNumber( dt )</a>    //get month day number</li>
+<li><a href="module-tmkt.html#~monthStart">.monthStart( dt )		</a>		//month start: YYYY-MM-01 00:00:00</li>
+<li><a href="module-tmkt.html#~monthEnd">.monthEnd( dt )			</a>			//month end: YYYY-MM-31/30/28/29 23:59:59.999</li>
+<li><a href="module-tmkt.html#~previousMonthStart">.previousMonthStart( dt )	</a>	//previous month start: YYYY-MM-01 00:00:00</li>
+<li><a href="module-tmkt.html#~previousMonthEnd">.previousMonthEnd( dt )		</a>		//previous month end: YYYY-MM-31/30/28/29 23:59:59.999</li>
+<li><a href="module-tmkt.html#~nextMonthStart">.nextMonthStart( dt )	</a>	//next month start: YYYY-MM-01 00:00:00</li>
+<li><a href="module-tmkt.html#~nextMonthEnd">.nextMonthEnd( dt )		</a>		//next month end: YYYY-MM-31/30/28/29 23:59:59.999</li>
+<li><a href="module-tmkt.html#~getMonthDayNumber">.getMonthDayNumber( dt )</a>	//get month day number</li>
 </ul>
 </li>
 </ol></div>
@@ -154,6 +160,8 @@
 
 
 
+
+
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>var tmkt= require("tmkt");
@@ -183,7 +191,7 @@ tmkt.toString19(dt);</code></pre>
 
         
             
-<h4 class="name" id="~constDayMilliseconds"><span class="type-signature">(inner) </span>constDayMilliseconds<span class="type-signature"></span></h4>
+<h4 class="name" id="~DAY_MILLISECONDS"><span class="type-signature">(inner) </span>DAY_MILLISECONDS<span class="type-signature"></span></h4>
 
 
 
@@ -369,6 +377,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -496,6 +506,8 @@ tmkt.toString19(dt);</code></pre>
 
     
 </dl>
+
+
 
 
 
@@ -649,6 +661,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -776,6 +790,8 @@ tmkt.toString19(dt);</code></pre>
 
     
 </dl>
+
+
 
 
 
@@ -929,6 +945,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -1056,6 +1074,8 @@ tmkt.toString19(dt);</code></pre>
 
     
 </dl>
+
+
 
 
 
@@ -1209,6 +1229,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -1336,6 +1358,8 @@ tmkt.toString19(dt);</code></pre>
 
     
 </dl>
+
+
 
 
 
@@ -1489,6 +1513,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -1616,6 +1642,8 @@ tmkt.toString19(dt);</code></pre>
 
     
 </dl>
+
+
 
 
 
@@ -1769,6 +1797,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -1896,6 +1926,8 @@ tmkt.toString19(dt);</code></pre>
 
     
 </dl>
+
+
 
 
 
@@ -2049,6 +2081,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -2176,6 +2210,8 @@ tmkt.toString19(dt);</code></pre>
 
     
 </dl>
+
+
 
 
 
@@ -2329,6 +2365,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -2469,11 +2507,155 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
 <div class="param-desc">
     <p>string &quot;MM-DD hh:mm:ss&quot;</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~toString14"><span class="type-signature">(inner) </span>toString14<span class="signature">(dt)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Date to &quot;yyyymmddHHMMSS&quot;</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dt</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A Date object</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>string &quot;yyyymmddHHMMSS&quot;</p>
 </div>
 
 
@@ -2596,6 +2778,8 @@ tmkt.toString19(dt);</code></pre>
 
     
 </dl>
+
+
 
 
 
@@ -2749,6 +2933,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -2889,6 +3075,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -2967,6 +3155,8 @@ tmkt.toString19(dt);</code></pre>
 
     
 </dl>
+
+
 
 
 
@@ -3120,6 +3310,8 @@ tmkt.toString19(dt);</code></pre>
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -3157,7 +3349,7 @@ tmkt.toString19(dt);</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a>
 </footer>
 
 <script> prettyPrint(); </script>
