@@ -50,23 +50,23 @@
 <li>
 <p>to string</p>
 <ul>
-<li><a href="module-tmkt.html#~toString14">.toString14( dt )		</a>	//Date to &quot;yyyymmddHHMMSS&quot;</li>
-<li><a href="module-tmkt.html#~toString19">.toString19( dt )		</a>	//Date to &quot;YYYY-MM-DD hh:mm:ss&quot;</li>
-<li><a href="module-tmkt.html#~toMdhms14">.toMdhms14( dt )			</a>	//Date to &quot;MM-DD hh:mm:ss&quot;</li>
-<li><a href="module-tmkt.html#~toHms8">.toHms8( dt )			</a>		//Date to &quot;hh:mm:ss&quot;</li>
-<li><a href="module-tmkt.html#~toHm5">.toHm5( dt )				</a>		//Date to &quot;hh:mm&quot;</li>
-<li><a href="module-tmkt.html#~toYmd10">.toYmd10( dt )			</a>		//Date to &quot;YYYY-MM-DD&quot;</li>
-<li><a href="module-tmkt.html#~toYmd6">.toYmd6( dt )			</a>		//Date to &quot;YYMMDD&quot;</li>
+<li><a href="module-tmkt.html#~toString19">.toString19( dt, toUtc )		</a>	//Date to &quot;YYYY-MM-DD hh:mm:ss&quot;</li>
+<li><a href="module-tmkt.html#~toString14">.toString14( dt, toUtc )		</a>	//Date to &quot;yyyymmddHHMMSS&quot;</li>
+<li><a href="module-tmkt.html#~toMdhms14">.toMdhms14( dt, toUtc )			</a>	//Date to &quot;MM-DD hh:mm:ss&quot;</li>
+<li><a href="module-tmkt.html#~toYmd10">.toYmd10( dt, toUtc )			</a>		//Date to &quot;YYYY-MM-DD&quot;</li>
+<li><a href="module-tmkt.html#~toYmd8">.toYmd8( dt, toUtc )			</a>		//Date to &quot;YYYYMMDD&quot;</li>
+<li><a href="module-tmkt.html#~toYmd6">.toYmd6( dt, toUtc )			</a>		//Date to &quot;YYMMDD&quot;</li>
+<li><a href="module-tmkt.html#~toHms8">.toHms8( dt, toUtc )			</a>		//Date to &quot;hh:mm:ss&quot;</li>
+<li><a href="module-tmkt.html#~toHm5">.toHm5( dt, toUtc )				</a>		//Date to &quot;hh:mm&quot;</li>
 </ul>
 </li>
 <li>
 <p>from string</p>
 <ul>
-<li><a href="module-tmkt.html#~fromString19">.fromString19( s )		</a>		//&quot;YYYY-MM-DD hh:mm:ss&quot; to Date</li>
-<li><a href="module-tmkt.html#~fromString14">.fromString14( s )		</a>		//&quot;yyyymmddHHMMSS&quot; to Date</li>
+<li><a href="module-tmkt.html#~fromString19">.fromString19( s, fromUtc )		</a>		//&quot;YYYY-MM-DD hh:mm:ss&quot; to Date</li>
+<li><a href="module-tmkt.html#~fromString14">.fromString14( s, fromUtc )		</a>		//&quot;yyyymmddHHMMSS&quot; to Date</li>
 <li><a href="module-tmkt.html#~fromYmd10">.fromYmd10( s )			</a>		//&quot;YYYY-MM-DD&quot; to Date</li>
 <li><a href="module-tmkt.html#~fromYmd8">.fromYmd8( s )			</a>		//&quot;YYYYMMDD&quot; to Date</li>
-<li><a href="module-tmkt.html#~fromUtcString19">.fromUtcString19( s )	</a>	//utc &quot;YYYY-MM-DD hh:mm:ss&quot; to Date</li>
 </ul>
 </li>
 <li>
@@ -258,7 +258,7 @@ tmkt.toString19(dt);</code></pre>
     
 
     
-    <h4 class="name" id="~fromString14"><span class="type-signature">(inner) </span>fromString14<span class="signature">(s)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~fromString14"><span class="type-signature">(inner) </span>fromString14<span class="signature">(s, fromUtc)</span><span class="type-signature"></span></h4>
     
 
     
@@ -322,135 +322,16 @@ tmkt.toString19(dt);</code></pre>
         </tr>
 
     
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>A Date object</p>
-</div>
-
-
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~fromString19"><span class="type-signature">(inner) </span>fromString19<span class="signature">(s)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>&quot;YYYY-MM-DD hh:mm:ss&quot; to Date</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
 
         <tr>
             
-                <td class="name"><code>s</code></td>
+                <td class="name"><code>fromUtc</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">bool</span>
 
 
             
@@ -460,7 +341,7 @@ tmkt.toString19(dt);</code></pre>
 
             
 
-            <td class="description last"><p>string &quot;YYYY-MM-DD hh:mm:ss&quot;</p></td>
+            <td class="description last"><p>UTC flag</p></td>
         </tr>
 
     
@@ -542,7 +423,7 @@ tmkt.toString19(dt);</code></pre>
     
 
     
-    <h4 class="name" id="~fromUtcString19"><span class="type-signature">(inner) </span>fromUtcString19<span class="signature">(s)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~fromString19"><span class="type-signature">(inner) </span>fromString19<span class="signature">(fromUtc, s)</span><span class="type-signature"></span></h4>
     
 
     
@@ -550,7 +431,7 @@ tmkt.toString19(dt);</code></pre>
 
 
 <div class="description">
-    <p>Utc string &quot;YYYY-MM-DD hh:mm:ss&quot; to Date, like <a href="module-tmkt.html#~fromString19">.fromString19( s )</a></p>
+    <p>&quot;YYYY-MM-DD hh:mm:ss&quot; to Date</p>
 </div>
 
 
@@ -582,6 +463,29 @@ tmkt.toString19(dt);</code></pre>
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fromUtc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC flag</p></td>
+        </tr>
+
     
 
         <tr>
@@ -2104,7 +2008,7 @@ tmkt.toString19(dt);</code></pre>
     
 
     
-    <h4 class="name" id="~toHm5"><span class="type-signature">(inner) </span>toHm5<span class="signature">(dt)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~toHm5"><span class="type-signature">(inner) </span>toHm5<span class="signature">(dt, toUtc)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2165,6 +2069,29 @@ tmkt.toString19(dt);</code></pre>
             
 
             <td class="description last"><p>A Date object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toUtc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC flag</p></td>
         </tr>
 
     
@@ -2246,7 +2173,7 @@ tmkt.toString19(dt);</code></pre>
     
 
     
-    <h4 class="name" id="~toHms8"><span class="type-signature">(inner) </span>toHms8<span class="signature">(dt)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~toHms8"><span class="type-signature">(inner) </span>toHms8<span class="signature">(dt, toUtc)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2307,6 +2234,29 @@ tmkt.toString19(dt);</code></pre>
             
 
             <td class="description last"><p>A Date object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toUtc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC flag</p></td>
         </tr>
 
     
@@ -2388,7 +2338,7 @@ tmkt.toString19(dt);</code></pre>
     
 
     
-    <h4 class="name" id="~toMdhms14"><span class="type-signature">(inner) </span>toMdhms14<span class="signature">(dt)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~toMdhms14"><span class="type-signature">(inner) </span>toMdhms14<span class="signature">(dt, toUtc)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2449,6 +2399,29 @@ tmkt.toString19(dt);</code></pre>
             
 
             <td class="description last"><p>A Date object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toUtc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC flag</p></td>
         </tr>
 
     
@@ -2530,7 +2503,7 @@ tmkt.toString19(dt);</code></pre>
     
 
     
-    <h4 class="name" id="~toString14"><span class="type-signature">(inner) </span>toString14<span class="signature">(dt)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~toString14"><span class="type-signature">(inner) </span>toString14<span class="signature">(dt, toUtc)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2591,6 +2564,29 @@ tmkt.toString19(dt);</code></pre>
             
 
             <td class="description last"><p>A Date object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toUtc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC flag</p></td>
         </tr>
 
     
@@ -2672,7 +2668,7 @@ tmkt.toString19(dt);</code></pre>
     
 
     
-    <h4 class="name" id="~toString19"><span class="type-signature">(inner) </span>toString19<span class="signature">(dt)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~toString19"><span class="type-signature">(inner) </span>toString19<span class="signature">(dt, toUtc)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2733,6 +2729,29 @@ tmkt.toString19(dt);</code></pre>
             
 
             <td class="description last"><p>A Date object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toUtc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC flag</p></td>
         </tr>
 
     
@@ -2814,7 +2833,7 @@ tmkt.toString19(dt);</code></pre>
     
 
     
-    <h4 class="name" id="~toYmd6"><span class="type-signature">(inner) </span>toYmd6<span class="signature">(dt)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~toYmd6"><span class="type-signature">(inner) </span>toYmd6<span class="signature">(dt, toUtc)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2875,6 +2894,29 @@ tmkt.toString19(dt);</code></pre>
             
 
             <td class="description last"><p>A Date object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toUtc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC flag</p></td>
         </tr>
 
     
@@ -2956,7 +2998,172 @@ tmkt.toString19(dt);</code></pre>
     
 
     
-    <h4 class="name" id="~toYmd10"><span class="type-signature">(inner) </span>toYmd10<span class="signature">(dt)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~toYmd8"><span class="type-signature">(inner) </span>toYmd8<span class="signature">(dt, toUtc)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Date to &quot;YYYYMMDD&quot;</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dt</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A Date object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toUtc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC flag</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>string &quot;YYYYMMDD&quot;</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~toYmd10"><span class="type-signature">(inner) </span>toYmd10<span class="signature">(dt, toUtc)</span><span class="type-signature"></span></h4>
     
 
     
@@ -3017,6 +3224,29 @@ tmkt.toString19(dt);</code></pre>
             
 
             <td class="description last"><p>A Date object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>toUtc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>UTC flag</p></td>
         </tr>
 
     

@@ -18,21 +18,21 @@
  *
  * 1. to string
  *
- *      * [.toString14( dt )		]{@link module:tmkt~toString14}	//Date to "yyyymmddHHMMSS"
- *      * [.toString19( dt )		]{@link module:tmkt~toString19}	//Date to "YYYY-MM-DD hh:mm:ss"
- *      * [.toMdhms14( dt )			]{@link module:tmkt~toMdhms14}	//Date to "MM-DD hh:mm:ss"
- *      * [.toHms8( dt )			]{@link module:tmkt~toHms8}		//Date to "hh:mm:ss"
- *      * [.toHm5( dt )				]{@link module:tmkt~toHm5}		//Date to "hh:mm"
- *      * [.toYmd10( dt )			]{@link module:tmkt~toYmd10}		//Date to "YYYY-MM-DD"
- *      * [.toYmd6( dt )			]{@link module:tmkt~toYmd6}		//Date to "YYMMDD"
+ *      * [.toString19( dt, toUtc )		]{@link module:tmkt~toString19}	//Date to "YYYY-MM-DD hh:mm:ss"
+ *      * [.toString14( dt, toUtc )		]{@link module:tmkt~toString14}	//Date to "yyyymmddHHMMSS"
+ *      * [.toMdhms14( dt, toUtc )			]{@link module:tmkt~toMdhms14}	//Date to "MM-DD hh:mm:ss"
+ *      * [.toYmd10( dt, toUtc )			]{@link module:tmkt~toYmd10}		//Date to "YYYY-MM-DD"
+ *      * [.toYmd8( dt, toUtc )			]{@link module:tmkt~toYmd8}		//Date to "YYYYMMDD"
+ *      * [.toYmd6( dt, toUtc )			]{@link module:tmkt~toYmd6}		//Date to "YYMMDD"
+ *      * [.toHms8( dt, toUtc )			]{@link module:tmkt~toHms8}		//Date to "hh:mm:ss"
+ *      * [.toHm5( dt, toUtc )				]{@link module:tmkt~toHm5}		//Date to "hh:mm"
  *	  
  * 2. from string
  *
- *      * [.fromString19( s )		]{@link module:tmkt~fromString19}		//"YYYY-MM-DD hh:mm:ss" to Date
- *      * [.fromString14( s )		]{@link module:tmkt~fromString14}		//"yyyymmddHHMMSS" to Date
+ *      * [.fromString19( s, fromUtc )		]{@link module:tmkt~fromString19}		//"YYYY-MM-DD hh:mm:ss" to Date
+ *      * [.fromString14( s, fromUtc )		]{@link module:tmkt~fromString14}		//"yyyymmddHHMMSS" to Date
  *      * [.fromYmd10( s )			]{@link module:tmkt~fromYmd10}		//"YYYY-MM-DD" to Date
  *      * [.fromYmd8( s )			]{@link module:tmkt~fromYmd8}		//"YYYYMMDD" to Date
- *      * [.fromUtcString19( s )	]{@link module:tmkt~fromUtcString19}	//utc "YYYY-MM-DD hh:mm:ss" to Date
  *
  * 3. utc & local
  *      * [.utcToLocal( dt )		]{@link module:tmkt~utcToLocal}		//utc to local
@@ -73,12 +73,20 @@ var tmkt = {
 	 * @function toString14
 	 * 
 	 * @param {Date} dt - A Date object
+	 * @param {bool} toUtc - UTC flag
 	 * 
 	 * @returns string "yyyymmddHHMMSS"
 	 */
-	toString14: function (dt) {
-		var s = dt.getFullYear() + " " + (dt.getMonth() + 1) + " " + dt.getDate() +
-			" " + dt.getHours() + " " + dt.getMinutes() + " " + dt.getSeconds();
+	toString14: function (dt, toUtc) {
+		var s;
+		if (toUtc) {
+			s = dt.getUTCFullYear() + " " + (dt.getUTCMonth() + 1) + " " + dt.getUTCDate() + " " +
+				dt.getUTCHours() + " " + dt.getUTCMinutes() + " " + dt.getUTCSeconds();
+		}
+		else {
+			s = dt.getFullYear() + " " + (dt.getMonth() + 1) + " " + dt.getDate() + " " +
+				dt.getHours() + " " + dt.getMinutes() + " " + dt.getSeconds();
+		}
 		return s.replace(/\b(\d)\b/g, "0$1").replace(/\s/g, "");
 	},
 
@@ -89,11 +97,12 @@ var tmkt = {
 	 * @function fromString14
 	 * 
 	 * @param {string} s - string "yyyymmddHHMMSS"
+	 * @param {bool} fromUtc - UTC flag
 	 * 
 	 * @returns A Date object
 	 */
-	fromString14: function (s) {
-		return new Date(
+	fromString14: function (s, fromUtc) {
+		var dt = new Date(
 			parseInt(s.substring(0, 4), 10),
 			parseInt(s.substring(4, 6), 10) - 1,
 			parseInt(s.substring(6, 8), 10),
@@ -101,6 +110,8 @@ var tmkt = {
 			parseInt(s.substring(10, 12), 10),
 			parseInt(s.substring(12, 14), 10)
 		);
+
+		return fromUtc ? this.utcToLocal(dt) : dt;
 	},
 
 
@@ -128,12 +139,21 @@ var tmkt = {
 	 * @function toString19
 	 * 
 	 * @param {Date} dt - A Date object
+	 * @param {bool} toUtc - UTC flag
 	 * 
 	 * @returns string "YYYY-MM-DD hh:mm:ss"
 	 */
-	toString19: function (dt) {
-		var s = dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate() +
-			" " + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+	toString19: function (dt, toUtc) {
+		var s;
+
+		if (toUtc) {
+			s = dt.getUTCFullYear() + "-" + (dt.getUTCMonth() + 1) + "-" + dt.getUTCDate() + " " +
+				dt.getUTCHours() + ":" + dt.getUTCMinutes() + ":" + dt.getUTCSeconds();
+		}
+		else {
+			s = dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate() + " " +
+				dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+		}
 		return s.replace(/\b(\d)\b/g, "0$1");
 	},
 
@@ -142,14 +162,15 @@ var tmkt = {
 	 * "YYYY-MM-DD hh:mm:ss" to Date
 	 * 
 	 * @function fromString19
+	 * @param {bool} fromUtc - UTC flag
 	 * 
 	 * @param {string} s - string "YYYY-MM-DD hh:mm:ss"
 	 * 
 	 * @returns A Date object
 	 */
-	fromString19: function (s) {
+	fromString19: function (s, fromUtc) {
 		var sa = s.split(/\D/);
-		return new Date(
+		var dt = new Date(
 			sa[0],
 			sa[1] - 1,
 			sa[2],
@@ -157,6 +178,7 @@ var tmkt = {
 			sa[4],
 			sa[5]
 		);
+		return fromUtc ? this.utcToLocal(dt) : dt;
 	},
 
 
@@ -185,12 +207,21 @@ var tmkt = {
 	 * @function toMdhms14
 	 * 
 	 * @param {Date} dt - A Date object
+	 * @param {bool} toUtc - UTC flag
 	 * 
 	 * @returns string "MM-DD hh:mm:ss"
 	 */
-	toMdhms14: function (dt) {
-		var s = (dt.getMonth() + 1) + "-" + dt.getDate() +
-			" " + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+	toMdhms14: function (dt, toUtc) {
+		var s;
+		if (toUtc) {
+			s = (dt.getUTCMonth() + 1) + "-" + dt.getUTCDate() +
+				" " + dt.getUTCHours() + ":" + dt.getUTCMinutes() + ":" + dt.getUTCSeconds();
+
+		}
+		else {
+			s = (dt.getMonth() + 1) + "-" + dt.getDate() +
+				" " + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+		}
 		return s.replace(/\b(\d)\b/g, "0$1");
 	},
 
@@ -200,11 +231,18 @@ var tmkt = {
 	 * @function toHms8
 	 * 
 	 * @param {Date} dt - A Date object
+	 * @param {bool} toUtc - UTC flag
 	 * 
 	 * @returns string "hh:mm:ss"
 	 */
-	toHms8: function (dt) {
-		var s = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+	toHms8: function (dt, toUtc) {
+		var s;
+		if (toUtc) {
+			s = dt.getUTCHours() + ":" + dt.getUTCMinutes() + ":" + dt.getUTCSeconds();
+		}
+		else {
+			s = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+		}
 		return s.replace(/\b(\d)\b/g, "0$1");
 	},
 
@@ -214,11 +252,18 @@ var tmkt = {
 	 * @function toHm5
 	 * 
 	 * @param {Date} dt - A Date object
+	 * @param {bool} toUtc - UTC flag
 	 * 
 	 * @returns string "hh:mm"
 	 */
-	toHm5: function (dt) {
-		var s = dt.getHours() + ":" + dt.getMinutes();
+	toHm5: function (dt, toUtc) {
+		var s;
+		if (toUtc) {
+			s = dt.getUTCHours() + ":" + dt.getUTCMinutes();
+		}
+		else {
+			s = dt.getHours() + ":" + dt.getMinutes();
+		}
 		return s.replace(/\b(\d)\b/g, "0$1");
 	},
 
@@ -228,25 +273,59 @@ var tmkt = {
 	 * @function toYmd10
 	 * 
 	 * @param {Date} dt - A Date object
+	 * @param {bool} toUtc - UTC flag
 	 * 
 	 * @returns string "YYYY-MM-DD"
 	 */
-	toYmd10: function (dt) {
-		var s = dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate();
+	toYmd10: function (dt, toUtc) {
+		var s;
+		if (toUtc) {
+			s = dt.getUTCFullYear() + "-" + (dt.getUTCMonth() + 1) + "-" + dt.getUTCDate();
+		}
+		else {
+			s = dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate();
+		}
 		return s.replace(/\b(\d)\b/g, "0$1");
 	},
 
+
+	/**
+	 * Date to "YYYYMMDD"
+	 * @function toYmd8
+	 * 
+	 * @param {Date} dt - A Date object
+	 * @param {bool} toUtc - UTC flag
+	 * 
+	 * @returns string "YYYYMMDD"
+	 */
+	toYmd8: function (dt, toUtc) {
+		var s;
+		if (toUtc) {
+			s = dt.getUTCFullYear() + " " + (dt.getUTCMonth() + 1) + " " + dt.getUTCDate();
+		}
+		else {
+			s = dt.getFullYear() + " " + (dt.getMonth() + 1) + " " + dt.getDate();
+		}
+		return s.replace(/\b(\d)\b/g, "0$1").replace(/\s/g, "");
+	},
 
 	/**
 	 * Date to "YYMMDD"
 	 * @function toYmd6
 	 * 
 	 * @param {Date} dt - A Date object
+	 * @param {bool} toUtc - UTC flag
 	 * 
 	 * @returns string "YYMMDD"
 	 */
-	toYmd6: function (dt) {
-		var s = dt.getFullYear() + " " + (dt.getMonth() + 1) + " " + dt.getDate();
+	toYmd6: function (dt, toUtc) {
+		var s;
+		if (toUtc) {
+			s = dt.getUTCFullYear() + " " + (dt.getUTCMonth() + 1) + " " + dt.getUTCDate();
+		}
+		else {
+			s = dt.getFullYear() + " " + (dt.getMonth() + 1) + " " + dt.getDate();
+		}
 		return s.replace(/\b(\d)\b/g, "0$1").replace(/\s/g, "").slice(2);
 	},
 
@@ -282,23 +361,6 @@ var tmkt = {
 	 * @returns A new Date object
 	 */
 	utcNow: function () { return this.localToUtc(new Date()); },
-
-
-	/**
-	 * 
-	 */
-	/**
-	 * Utc string "YYYY-MM-DD hh:mm:ss" to Date, like [.fromString19( s )]{@link module:tmkt~fromString19}
-	 * 
-	 * @function fromUtcString19
-	 * 
-	 * @param {string} s - string "YYYY-MM-DD hh:mm:ss"
-	 * 
-	 * @returns A Date object
-	 */
-	fromUtcString19: function (s) {
-		return this.utcToLocal(this.fromString19(s));
-	},
 
 
 	/**
