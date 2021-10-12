@@ -16,6 +16,7 @@ tmkt.toString19(dt);
 
 ## API
 
+```
 0. const
 
     .DAY_MILLISECONDS === 86400000,        // 24*60*60*1000
@@ -54,4 +55,5 @@ tmkt.toString19(dt);
     .nextMonthStart( dt )              //next month start: YYYY-MM-01 00:00:00
     .nextMonthEnd( dt )                //next month end: YYYY-MM-31/30/28/29 23:59:59.999
     .monthDayNumber( dt )              //get month day number
+```
 
