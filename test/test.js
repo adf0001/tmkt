@@ -27,6 +27,9 @@ describe('tmkt', function () {
 	it('toString19 toUTC', function () {
 		assert(tmkt.toString19(dt, true) == dtsUtc);
 	});
+	it('toString23', function () {
+		assert(tmkt.toString23( new Date(dt.getTime()+123) ) == (dts+".123"));
+	});
 	it('toString14', function () {
 		assert(tmkt.toString14(dt) == dts.replace(/\D/g, ""));
 	});
@@ -75,6 +78,9 @@ describe('tmkt', function () {
 	});
 	it('fromString19 fromUtc', function () {
 		assert(tmkt.fromString19(dtsUtc, true).getTime() == dt.getTime());
+	});
+	it('fromString23', function () {
+		assert(tmkt.fromString23(dts+".123").getTime() == (dt.getTime()+123) );
 	});
 	it('fromString14', function () {
 		assert(tmkt.fromString14(dts.replace(/\D/g, "")).getTime() == dt.getTime());

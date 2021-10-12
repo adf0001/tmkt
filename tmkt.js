@@ -37,15 +37,21 @@ var toString14 = function (dt, toUtc) { return toString19(dt, toUtc).replace(/\D
 //Date to "MM-DD hh:mm:ss"
 var toMdhms14 = function (dt, toUtc) { return toString19(dt, toUtc).slice(-14); }
 
+//Date to "YYYY-MM-DD hh:mm:ss.fff"
+var toString23 = function (dt, toUtc) {
+	if (!dt) dt = new Date();
+	return toString19(dt) + "." + ("00" + (toUtc ? dt.getUTCMilliseconds() : dt.getMilliseconds())).slice(-3);
+}
+
 //"yyyymmddHHMMSS" to Date
 var fromString14 = function (s, fromUtc) {
 	var dt = new Date(
 		parseInt(s.substring(0, 4), 10),
-		parseInt(s.substring(4, 6), 10) - 1,
-		parseInt(s.substring(6, 8), 10),
-		parseInt(s.substring(8, 10), 10),
-		parseInt(s.substring(10, 12), 10),
-		parseInt(s.substring(12, 14), 10)
+		s.substring(4, 6) - 1,
+		s.substring(6, 8),
+		s.substring(8, 10),
+		s.substring(10, 12),
+		s.substring(12, 14)
 	);
 
 	return fromUtc ? utcToLocal(dt) : dt;
@@ -55,8 +61,8 @@ var fromString14 = function (s, fromUtc) {
 var fromYmd8 = function (s) {
 	return new Date(
 		parseInt(s.substring(0, 4), 10),
-		parseInt(s.substring(4, 6), 10) - 1,
-		parseInt(s.substring(6, 8), 10),
+		s.substring(4, 6) - 1,
+		s.substring(6, 8),
 		0, 0, 0
 	);
 }
@@ -64,14 +70,21 @@ var fromYmd8 = function (s) {
 //"YYYY-MM-DD hh:mm:ss" to Date
 var fromString19 = function (s, fromUtc) {
 	var sa = s.split(/\D/);
-	var dt = new Date(sa[0], sa[1] - 1, sa[2], sa[3], sa[4], sa[5]);
+	var dt = new Date(parseInt(sa[0], 10), sa[1] - 1, sa[2], sa[3], sa[4], sa[5]);
+	return fromUtc ? utcToLocal(dt) : dt;
+}
+
+//"YYYY-MM-DD hh:mm:ss.fff" to Date
+var fromString23 = function (s, fromUtc) {
+	var sa = s.split(/\D/);
+	var dt = new Date(parseInt(sa[0], 10), sa[1] - 1, sa[2], sa[3], sa[4], sa[5], parseInt(sa[6], 10));
 	return fromUtc ? utcToLocal(dt) : dt;
 }
 
 //"YYYY-MM-DD" to Date
 var fromYmd10 = function (s) {
 	var sa = s.split(/\D/);
-	return new Date(sa[0], sa[1] - 1, sa[2], 0, 0, 0);
+	return new Date(parseInt(sa[0], 10), sa[1] - 1, sa[2], 0, 0, 0);
 }
 
 //Date to "hh:mm:ss"
@@ -153,11 +166,13 @@ module.exports = {
 	toString19: toString19,
 	toString14: toString14,
 	toMdhms14: toMdhms14,
+	toString23: toString23,
 
 	fromString14: fromString14,
 	fromYmd8: fromYmd8,
 	fromString19: fromString19,
 	fromYmd10: fromYmd10,
+	fromString23: fromString23,
 
 	toHms8: toHms8,
 	toHm5: toHm5,

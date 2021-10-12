@@ -30,6 +30,7 @@ tmkt.toString19(dt);
     .toYmd6( dt, toUtc )               //Date to "YYMMDD"
     .toHms8( dt, toUtc )               //Date to "hh:mm:ss"
     .toHm5( dt, toUtc )                //Date to "hh:mm"
+    .toString23( dt, toUtc )           //Date to "YYYY-MM-DD hh:mm:ss.fff"
   
 2. from string
 
@@ -37,6 +38,7 @@ tmkt.toString19(dt);
     .fromString14( s, fromUtc )        //"yyyymmddHHMMSS" to Date
     .fromYmd10( s )                    //"YYYY-MM-DD" to Date
     .fromYmd8( s )                     //"YYYYMMDD" to Date
+    .fromString23( s, fromUtc )        //"YYYY-MM-DD hh:mm:ss.fff" to Date
 
 3. utc & local
     .utcToLocal( dt )                  //utc to local
