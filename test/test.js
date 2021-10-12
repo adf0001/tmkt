@@ -125,8 +125,8 @@ describe('tmkt', function () {
 		var dt = tmkt.nextMonthEnd(new Date());
 		console.log( dt, "" + dt);
 	});
-	it('getMonthDayNumber', function () {
-		console.log( tmkt.getMonthDayNumber(new Date()));
+	it('monthDayNumber', function () {
+		console.log( tmkt.monthDayNumber(new Date()));
 	});
 
 });
