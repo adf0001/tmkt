@@ -7,19 +7,11 @@ Time kit.
 npm install tmkt
 ```
 
-## Example
-
-```
-var tmkt= require("tmkt");
-
-tmkt.toString19(dt);
-```
-
 ## Usage & Api
 
 ```javascript
 
-tmkt = require("tmkt");
+var tmkt = require("tmkt");
 
 //.DAY_MILLISECONDS		// 24*60*60*1000= 86400000
 assert(tmkt.DAY_MILLISECONDS === 24 * 60 * 60 * 1000);
