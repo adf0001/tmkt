@@ -1,7 +1,5 @@
 ﻿
-/*
-	Time kit
-*/
+// tmkt @ npm, time kit.
 
 //Milliseconds of one day, 24*60*60*1000= 86400000
 var DAY_MILLISECONDS = 86400000;
@@ -122,38 +120,62 @@ var toYmd6 = function (dt, toUtc) { return toYmd8(dt, toUtc).slice(-6); }
 var monthStart = function (dt) { return new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0); }
 
 //get month end Date: YYYY-MM-31/30/28/29 23:59:59.999
-var monthEnd = function (dt) {
-	dt = new Date(dt.getTime() + (32 - dt.getDate()) * DAY_MILLISECONDS);		//next month
-	return new Date(monthStart(dt).getTime() - 1);
-}
+var monthEnd = function (dt) { return new Date(dt.getFullYear(), dt.getMonth() + 1, 1, 0, 0, 0, -1); }
 
 //get previous month start Date: YYYY-MM-01 00:00:00
-var previousMonthStart = function (dt) {
-	dt = new Date(dt.getTime() - (dt.getDate() + 1) * DAY_MILLISECONDS);		//previous month
-	return monthStart(dt);
-}
+var previousMonthStart = function (dt) { return new Date(dt.getFullYear(), dt.getMonth() - 1, 1, 0, 0, 0); }
 
 //get previous month end Date: YYYY-MM-31/30/28/29 23:59:59.999
-var previousMonthEnd = function (dt) {
-	return new Date(monthStart(dt).getTime() - 1);
-}
+var previousMonthEnd = function (dt) { return new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0, -1); }
 
 //get next month start Date: YYYY-MM-01 00:00:00
-var nextMonthStart = function (dt) {
-	dt = new Date(dt.getTime() + (32 - dt.getDate()) * DAY_MILLISECONDS);		//next month
-	return monthStart(dt);
-}
+var nextMonthStart = function (dt) { return new Date(dt.getFullYear(), dt.getMonth() + 1, 1, 0, 0, 0); }
 
 //get next month end Date: YYYY-MM-31/30/28/29 23:59:59.999
-var nextMonthEnd = function (dt) {
-	dt = new Date(dt.getTime() + (64 - dt.getDate()) * DAY_MILLISECONDS);		//next 2nd months
-	dt = new Date(dt.getFullYear(), dt.getMonth(), 1, 0, 0, 0);
-	return new Date(dt.getTime() - 1);
-}
+var nextMonthEnd = function (dt) { return new Date(dt.getFullYear(), dt.getMonth() + 2, 1, 0, 0, 0, -1); }
 
 //get month day number
 var monthDayNumber = function (dt) {
 	return (nextMonthStart(dt) - monthStart(dt)) / DAY_MILLISECONDS;
+}
+
+//Date diff string "*d *h *m *s", or "[*d ][*h ][*m ]*s" for `shorten`
+var diffDHMS = function (startTime, endTime, shorten, charset) {
+	var n = endTime - startTime;		//milliseconds
+
+	var sign = (n < 0) ? "-" : "";
+	if (sign) n = -n;
+
+	//var milliseconds= n%1000;
+	n = Math.round(n / 1000);	//seconds
+	var seconds = n % 60;
+	n = Math.round(n / 60);	//minutes
+	var minutes = n % 60;
+	n = (n - minutes) / 60;	//hours
+	var hours = n % 24;
+	n = (n - hours) / 24;	//days
+	var days = n;
+
+	//charset
+	var s;
+	if (charset) {
+		if (charset.match(/^(gb|ch|zh|936|chinese)$/i)) {
+			s = sign + days + '天' + hours + '时' + minutes + '分' + seconds + "秒";
+		}
+	}
+
+	if (!s) s = sign + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+
+	//shorten
+	return shorten ? s.replace(/(\d+)(\D+)(?!$)/g, function (m, p1) { return (p1 === "0") ? "" : m; }) : s;
+}
+
+//Date diff string "*d *h *m", or "[*d] [*h] *m" for `shorten`
+var diffDHM = function (startTime, endTime, shorten, charset) {
+	var s = diffDHMS(startTime, endTime, false, charset).replace(/\s*\d+(\D+)?$/, "");	//remove the last number
+
+	//shorten
+	return shorten ? s.replace(/(\d+)(\D+)(?!$)/g, function (m, p1) { return (p1 === "0") ? "" : m; }) : s;
 }
 
 module.exports = {
@@ -189,6 +211,9 @@ module.exports = {
 	nextMonthEnd: nextMonthEnd,
 
 	monthDayNumber: monthDayNumber,
+
+	diffDHMS: diffDHMS,
+	diffDHM: diffDHM,
 
 };
 
