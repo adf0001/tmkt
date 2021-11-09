@@ -140,7 +140,7 @@ var monthDayNumber = function (dt) {
 }
 
 //Date diff string "*d *h *m *s", or "[*d ][*h ][*m ]*s" for `shorten`
-var diffDHMS = function (startTime, endTime, shorten, charset) {
+var diffDhms = function (startTime, endTime, shorten, charset) {
 	var n = endTime - startTime;		//milliseconds
 
 	var sign = (n < 0) ? "-" : "";
@@ -171,8 +171,8 @@ var diffDHMS = function (startTime, endTime, shorten, charset) {
 }
 
 //Date diff string "*d *h *m", or "[*d] [*h] *m" for `shorten`
-var diffDHM = function (startTime, endTime, shorten, charset) {
-	var s = diffDHMS(startTime, endTime, false, charset).replace(/\s*\d+(\D+)?$/, "");	//remove the last number
+var diffDhm = function (startTime, endTime, shorten, charset) {
+	var s = diffDhms(startTime, endTime, false, charset).replace(/\s*\d+(\D+)?$/, "");	//remove the last number
 
 	//shorten
 	return shorten ? s.replace(/(\d+)(\D+)(?!$)/g, function (m, p1) { return (p1 === "0") ? "" : m; }) : s;
@@ -212,8 +212,8 @@ module.exports = {
 
 	monthDayNumber: monthDayNumber,
 
-	diffDHMS: diffDHMS,
-	diffDHM: diffDHM,
+	diffDhms: diffDhms,
+	diffDhm: diffDhm,
 
 };
 

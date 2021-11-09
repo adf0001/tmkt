@@ -98,22 +98,22 @@ assert(tmkt.nextMonthEnd(new Date(2020, 2, 15)).getTime() === (new Date(2020, 3,
 //.monthDayNumber( dt )              //get month day number, 28/29/30/31
 assert(tmkt.monthDayNumber(new Date(2020, 1, 15)) === 29);
 
-//.diffDHMS(startTime, endTime, shorten, charset)		//date diff to "0d 0h 0m 0s", or "[0d ][0h ][0m ]0s" for `shorten`
-assert(tmkt.diffDHMS(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 4, 5, 6, 7)) === '1d 0h 1m 1s');
-assert(tmkt.diffDHMS(new Date(2000, 1, 4, 5, 6, 7), new Date(2000, 1, 3, 5, 5, 6)) === '-1d 0h 1m 1s');	//negative
+//.diffDhms(startTime, endTime, shorten, charset)		//date diff to "0d 0h 0m 0s", or "[0d ][0h ][0m ]0s" for `shorten`
+assert(tmkt.diffDhms(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 4, 5, 6, 7)) === '1d 0h 1m 1s');
+assert(tmkt.diffDhms(new Date(2000, 1, 4, 5, 6, 7), new Date(2000, 1, 3, 5, 5, 6)) === '-1d 0h 1m 1s');	//negative
 
-assert(tmkt.diffDHMS(new Date(2000, 1, 4, 5, 6, 7), new Date(2000, 1, 3, 5, 5, 6), null, "ch") === '-1天0时1分1秒');	//only support charset=chinese
+assert(tmkt.diffDhms(new Date(2000, 1, 4, 5, 6, 7), new Date(2000, 1, 3, 5, 5, 6), null, "ch") === '-1天0时1分1秒');	//only support charset=chinese
 
-assert(tmkt.diffDHMS(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 4, 5, 6, 7),true) === '1d 1m 1s');	//shorten
-assert(tmkt.diffDHMS(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 3, 5, 6, 7),true) === '1m 1s');	//shorten
-assert(tmkt.diffDHMS(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 3, 5, 6, 6),true) === '1m 0s');	//the last is not shorten
-assert(tmkt.diffDHMS(new Date(2000, 1, 3, 5, 6, 6), new Date(2000, 1, 3, 5, 6, 6),true, "ch") === '0秒');
+assert(tmkt.diffDhms(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 4, 5, 6, 7),true) === '1d 1m 1s');	//shorten
+assert(tmkt.diffDhms(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 3, 5, 6, 7),true) === '1m 1s');	//shorten
+assert(tmkt.diffDhms(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 3, 5, 6, 6),true) === '1m 0s');	//the last is not shorten
+assert(tmkt.diffDhms(new Date(2000, 1, 3, 5, 6, 6), new Date(2000, 1, 3, 5, 6, 6),true, "ch") === '0秒');
 
-//.diffDHM(startTime, endTime, shorten, charset)		//date diff to "0d 0h 0m", or "[0d ][0h ]0m" for `shorten`
-assert(tmkt.diffDHM(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 4, 5, 6, 7)) === '1d 0h 1m');
+//.diffDhm(startTime, endTime, shorten, charset)		//date diff to "0d 0h 0m", or "[0d ][0h ]0m" for `shorten`
+assert(tmkt.diffDhm(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 4, 5, 6, 7)) === '1d 0h 1m');
 
-assert(tmkt.diffDHM(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 4, 5, 6, 7),true) === '1d 1m');	//shorten
-assert(tmkt.diffDHM(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 3, 5, 6, 7),true) === '1m');	//shorten
+assert(tmkt.diffDhm(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 4, 5, 6, 7),true) === '1d 1m');	//shorten
+assert(tmkt.diffDhm(new Date(2000, 1, 3, 5, 5, 6), new Date(2000, 1, 3, 5, 6, 7),true) === '1m');	//shorten
 
 ```
 
