@@ -1,7 +1,7 @@
 
 //global variable, for html page, refer tpsvr @ npm.
 assert = require("assert");
-tmkt = require("../tmkt.js");
+tmkt = require("../index.js");
 
 module.exports = {
 

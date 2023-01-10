@@ -2,8 +2,8 @@
   "name": "tmkt",
   "description": "Time kit",
   "license": "MIT",
-  "version": "1.0.7",
-  "main": "tmkt.js",
+  "version": "1.0.8",
+  "main": "index.js",
   "keywords": [
     "time",
     "kit"
